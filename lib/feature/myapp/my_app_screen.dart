@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tavflutter/core/languages/languages.dart';
 import 'package:tavflutter/core/widgets/app_bar.dart';
-import 'package:tavflutter/myapp/widgets/choose_people_widget.dart';
-import 'package:tavflutter/myapp/widgets/product_widget.dart';
+import 'package:tavflutter/feature/myapp/widgets/choose_people_widget.dart';
+import 'package:tavflutter/feature/myapp/widgets/product_widget.dart';
 
 class MyAppScreen extends StatefulWidget {
   const MyAppScreen({super.key});

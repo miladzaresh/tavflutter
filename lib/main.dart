@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tavflutter/core/languages/languages.dart';
-import 'package:tavflutter/myapp/my_app_screen.dart';
+import 'package:tavflutter/feature/myapp/my_app_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tavflutter/todoes/todoes_page.dart';
+import 'package:tavflutter/feature/signup/signup_screen.dart';
 
 import 'core/languages/app_localizations.dart';
 import 'core/languages/locales.dart';
+import 'feature/login/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       supportedLocales: Locales.supportLocals,
-      locale: Locale('fa'),
+      locale: Locale('en'),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         AppLocalizationsDelegate(),
 
       ],
-      home: const TodoesPage(),
+      home: SignUpScreen(),
     );
   }
 }

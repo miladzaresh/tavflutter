@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tavflutter/todoes/widgets/list_view_todoes.dart';
-import 'package:tavflutter/todoes/widgets/textfielld_widget.dart';
+import 'package:tavflutter/feature/todoes/widgets/list_view_todoes.dart';
+import 'package:tavflutter/feature/todoes/widgets/textfielld_widget.dart';
 class TodoesPage extends StatefulWidget {
   const TodoesPage({super.key});
 
