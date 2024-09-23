@@ -84,10 +84,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ElevatedButton(onPressed: (){
               setState(() {
                 items.add(SwitchItem((indexID) {
-
                   setState(() {
                     items.removeWhere((element) => element.id==indexID);
-
                   });
                 }, counter++));
               });

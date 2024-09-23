@@ -11,30 +11,51 @@ class SwitchItem extends StatefulWidget {
 
 class _SwitchItemState extends State<SwitchItem> {
   late bool _switchValue=false;
+  late bool _isEdit=false;
+  late TextEditingController controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller=TextEditingController(text: 'switch ${widget.id}');
+  }
   @override
   Widget build(BuildContext context) =>
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
+          Expanded(child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Switch(value: _switchValue, onChanged:(val)=>setState(() {
                 _switchValue=val;
               })),
-              Text(widget.id.toString()),
-              Image.network('https://cdn.britannica.com/70/234870-050-D4D024BB/Orange-colored-cat-yawns-displaying-teeth.jpg?w=300 ',scale: 4,)
+              SizedBox(width: 8,),
+              Expanded(child: _isEdit?TextField(
+                controller: controller,
+              ):Text(controller.text)),
             ],
-          ),
-          IconButton(onPressed: (){
-            if(_switchValue){
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('you can not delete ')));
-            }else{
-              widget.onDelete(widget.id);
-            }
-          }, icon: Icon(Icons.delete_outline,color: Colors.red,))
+          )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              IconButton(onPressed: (){
+                if(_switchValue){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('you can not delete ')));
+                }else{
+                  widget.onDelete(widget.id);
+                }
+              }, icon: Icon(Icons.delete_outline,color: Colors.red,)),
+              IconButton(onPressed: (){
+                setState(() {
+                  _isEdit=!_isEdit;
+                });
+              }, icon: Icon(_isEdit?Icons.check:Icons.edit,color: Colors.black,)),
+            ],
+          )
         ],
       );
 }
